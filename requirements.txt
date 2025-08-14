@@ -1,1 +1,17 @@
 streamlit
+pyyaml
+pdfplumber
+sentence-transformers
+chromadb
+transformers>=4.30
+torch
+faiss-cpu
+tqdm
+pydantic
+typing-extensions
+python-multipart
+reportlab
+scikit-learn
+pymupdf
+evaluate
+groq
