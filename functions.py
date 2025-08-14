@@ -7,7 +7,7 @@ import time
 from io import BytesIO
 from typing import List, Tuple, Dict
 
-import fitz  # PyMuPDF
+import pymupdf  # PyMuPDF
 import numpy as np
 import requests
 import streamlit as st
@@ -29,8 +29,7 @@ from config import (
     TOP_K_CHUNKS_FOR_QA,
 )
 
-# Optional metrics (defined but NOT executed anywhere)
-# This satisfies the request to "add a function to evaluate using ROUGE, BLEU but do not execute".
+# Optional metrics
 def compute_metrics_rouge_bleu(reference: str, candidate: str) -> Dict[str, float]:
     """Return ROUGE-1/2/L and BLEU scores. Heavy deps are imported lazily.
     NOTE: This function is defined for completeness but never called in the app.
@@ -74,7 +73,7 @@ def extract_text_from_pdf_path(path: str) -> str:
     if not os.path.exists(path):
         return ""
     try:
-        doc = fitz.open(path)
+        doc = pymupdf.open(path)
     except Exception:
         return ""
     texts: List[str] = []
@@ -274,3 +273,4 @@ def generate_pdf(title: str, content: str):
     doc.build(story)
     buffer.seek(0)
     return buffer
+
