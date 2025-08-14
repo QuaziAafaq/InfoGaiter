@@ -1,0 +1,17 @@
+#Project: Bishop's PDF Summarizer & Multi-PDF QA (Modular Streamlit app)
+# -----------------------------
+#File: requirements.txt
+# -----------------------------
+
+streamlit>=1.20
+pyyaml
+pdfplumber
+sentence-transformers
+chromadb
+transformers>=4.30
+torch
+faiss-cpu
+tqdm
+pydantic
+typing-extensions
+python-multipart
